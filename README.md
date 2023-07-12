@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+<h1>SEGUNDO PARCIAL CIU - PRIMER CUATRIMESTRE 2023:</h1><br><br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3>:eight_spoked_asterisk: Surgimiento de la idea:</h3><br><br>
+ En principio estaba desarrollando una página que consumiese la API de League of Legends :video_game:, tenía una idea interesante sobre consumir endpoints sobre los personajes elegidos por el usuario y relacionarlos entre sí por medio del Lore de cada uno y mostrarlo con una interfaz que una a los diferentes personajes como si se tratase de un grafo. El problema fue que en medio del desarrollo me encontré con que desde Postman y Google se puede consumir la API de Riot, pero no por medio del fetch :interrobang:, puesto que para poder consumirlo desde un proyecto en desarrollo se necesita que Riot apruebe tu proyecto previamente, lo cual puede llevar mucho tiempo y por ende tuve que descartar esta idea :x::put_litter_in_its_place:<br>
+ Revisando múltiples APIs encontré una bastante simple sobre frases de Breaking Bad, eso me resultó interesante y me llevó a querer procesar esas consultas simples para conseguir resultados un poco más complejos, y por suerte esta página sí podía consumirse desde un proyecto personal en desarrollo :white_check_mark:<br><br>
 
-## Available Scripts
+<h3>:eight_spoked_asterisk: Elección visual y de experiencia de usuario:</h3><br><br>
+ En primer lugar tuve que pensar cómo quería que se viese :eyes: la página, opté por algo relacionado con el mundo y los colores de Breaking Bad. Los colores predominantes de la página son los diferentes tonos de verde :green_heart:, pero sobretodo los verdes oscuros que resaltan sobre el fondo negro. Luego de esta elección de colores siguió la de las imágenes y su disposición, me pareció que contar con seis imágenes aportaba variedad y además no llenaba la página solamente de imágenes seleccionables, al tener esto decidido, me decanté por armar un patrón para las dos filas de imágenes que fuese "Imagen con un fondo árido o desértico, una imágen con un fondo oscuro y una última imagen con fondo desértico". Elegí este patrón porque me gustó mucho el poder incluir colores que referencien a la serie (el deserierto :cactus: y los colores áridos :yellow_heart: son bastante importantes y predominantes en la serie y el color negro detrás de algunos personajes es un reflejo de algunas de las cosas que les pasarán en la serie :bangbang:).<br>
+  Para mejorar la experiencia al navegar por la página también agregué algunos efectos que hiciesen ver a la página más interactiva, como los efectos que se desencadenan al pasar por encima de las imágenes o de las recomendaciones. En el próximo punto también se trata un aspecto clave para mejorar la experiencia de usuario dentro de la página :bulb:<br><br>
+ 
+<h3>:eight_spoked_asterisk: Primeras funcionalidades de la API:</h3><br><br>
+ La primera idea fue poder tener múltiples formas de invocar al personaje del que se desee leer una frase :speech_balloon:, así surgieron las tres formas implementadas para seleccionar al autor. La primera forma es mediante el clickeo de alguna de las imágenes :camera: que se encuentran al entrar en la página, al clickearla automáticamente el Input de búsqueda se llenará con el nombre del personaje, por lo que al clickear en buscar nos traerá una frase de ese personaje. La segunda forma es similar a la primera, debajo del Input para búscar al autor hay tres recomendaciones aleatorias que al ser seleccionadas llenan el input con el personaje recomendado. La última y la más tradicional es escribiendo el nombre del personaje manualmente en el input para luego clickear en el botón de búsqueda.<br>
+  Para optimizar este sistema y mejorar la experiencia de usuario, hice que no sea necesario escribir :pencil: el nombre de forma idéntica a como está guardado en la API, para esto creé una función que convierte el input al mismo String pero con la primera letra en mayúscula y el resto en minúscula (esto surgió debido a que cuando estaba empezando a probar la idea para la API de LOL para matchear a los personajes buscaba el String de diferente forma, siendo una con la primera letra en mayúscula y el resto en minúscula). Con esa función conseguía que escribiendo tanto "Walter White" como "walter white" o inclusive "wAltEr WHitE" se pueda acceder a la frase del personaje sin ningún problema.<br><br>
 
-In the project directory, you can run:
+<h3>:eight_spoked_asterisk: Algunos extras:</h3><br><br>
+ Una vez que ya se podían realizar las consultas de forma consistente se me ocurrió que podía almacenar las frases en el local storage :minidisc: y además sacarle provecho a esto, mostrando las últimas tres frases del historial debajo de la última frase consultada, actualizando el listado en tiempo real al pedir una frase nueva y trayéndo el historial al recargar la página :recycle:<br>
+ También para evitar errores e inconsistencias, si se solicita una frase sobre algún personaje que no se encuentra provisto en la API, en el recuadro de la frase podremos leer un texto que reza "No hay registros para ese autor."<br><br>
 
-### `npm start`
+<h3>:eight_spoked_asterisk: Funcionalidades que lamentablemente quedaron fuera:</h3><br><br>
+ Algunas de las ideas que lamentablemente quedaron fuera fueron, por ejemplo, filtrar las frases por autores :raising_hand:, de esta forma obteniendo por ejemplo todas las frases de Walter White, otra de las ideas era enumerar la cantidad de citas que tiene un determinado personaje, para poder ver de cuál de los personajes hay más registros que de los demás, que se pudiese buscar personajes solamente por nombre e igualmente encuentre al personaje al que te estás refieriendo, entre otras cosas.<br><br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h3>:eight_spoked_asterisk: Palabras finales:</h3><br><br>
+ Por último pero no menos importante quiero agradecer por la productiva cursada que me permitió descubrir algunos aspectos importantes que a los desarrolladores de BackEnd se nos suelen pasar por alto, como la importancia de contar con una interfaz bonita o de mejorar la experiencia de usuario en la medida de lo posible, espero les guste la página. Saludos :smiley:
